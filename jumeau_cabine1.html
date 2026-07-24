@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Umeme - Jumeau Numérique Cabine 1</title>
+
+
+<link rel="stylesheet" href="css/jumeau.css">
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+<!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+
+<!-- Orbit Controls -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+
+</head>
+
+
+<body>
+
+
+<div class="top-navigation">
+
+<a href="cabine1.html" class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Retour Cabine 1
+
+</a>
+
+</div>
+
+
+
+
+<header>
+
+<div class="brand">
+
+<i class="fa-solid fa-bolt"></i>
+
+SMART UMEME
+
+</div>
+
+
+<div>
+Jumeau numérique - Cabine 1
+</div>
+
+
+<div class="status">
+
+🟢 Normal
+
+</div>
+
+
+</header>
+
+
+
+
+
+<main class="digital-twin">
+
+
+<!-- ZONE 3D -->
+
+<div class="card scene-container">
+
+
+<h2>
+
+<i class="fa-solid fa-cube"></i>
+
+Modèle 3D de la cabine
+
+</h2>
+
+
+<div id="scene3D"></div>
+
+
+</div>
+
+
+
+
+
+
+<!-- INFORMATIONS TEMPS REEL -->
+
+
+<div class="card information">
+
+
+<h2>
+
+<i class="fa-solid fa-chart-line"></i>
+
+Etat du transformateur
+
+</h2>
+
+
+
+<div class="line">
+
+<span>Tension</span>
+
+<b>230 V</b>
+
+</div>
+
+
+
+
+<div class="line">
+
+<span>Courant</span>
+
+<b>45 A</b>
+
+</div>
+
+
+
+
+<div class="line">
+
+<span>Puissance</span>
+
+<b>10.2 kW</b>
+
+</div>
+
+
+
+
+<div class="line">
+
+<span>Température</span>
+
+<b>38 °C</b>
+
+</div>
+
+
+
+
+<div class="line">
+
+<span>Relais</span>
+
+<b style="color:#22c55e">
+
+🟢 ON
+
+</b>
+
+</div>
+
+
+</div>
+
+
+</main>
+
+
+
+
+
+<script src="js/jumeau1.js"></script>
+
+
+</body>
+
+</html>

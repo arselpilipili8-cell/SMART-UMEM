@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Umeme - Cabine 2</title>
+
+
+<link rel="stylesheet" href="css/cabine.css">
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- RETOUR DASHBOARD -->
+
+<div class="top-navigation">
+
+
+<a href="dashboard.html" class="back-btn">
+
+
+<i class="fa-solid fa-arrow-left"></i>
+
+
+Retour au Dashboard
+
+
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+<header>
+
+
+<div class="brand">
+
+
+<i class="fa-solid fa-bolt"></i>
+
+
+SMART UMEME
+
+
+</div>
+
+
+
+
+
+<div>
+
+
+Cabine 2 - Supervision
+
+
+</div>
+
+
+
+
+
+<div class="status">
+
+
+🟢 Normal
+
+
+</div>
+
+
+
+</header>
+
+
+
+
+
+
+
+
+<main class="dashboard">
+
+
+
+
+
+
+<!-- MESURES ELECTRIQUES CABINE 2 -->
+
+
+<div class="card">
+
+
+<h2>
+
+
+<i class="fa-solid fa-chart-simple"></i>
+
+
+Mesures électriques
+
+
+</h2>
+
+
+
+
+<div class="line">
+
+<span>Tension</span>
+
+<b>228 V</b>
+
+</div>
+
+
+
+
+<div class="line">
+
+<span>Courant</span>
+
+<b>32 A</b>
+
+</div>
+
+
+
+
+
+<div class="line">
+
+<span>Puissance active</span>
+
+<b>7.5 kW</b>
+
+</div>
+
+
+
+
+
+<div class="line">
+
+<span>Energie</span>
+
+<b>98 kWh</b>
+
+</div>
+
+
+
+
+
+<div class="line">
+
+<span>Facteur puissance</span>
+
+<b>0.95</b>
+
+</div>
+
+
+
+
+
+<div class="line">
+
+<span>Fréquence</span>
+
+<b>50 Hz</b>
+
+</div>
+
+
+
+
+
+<div class="line">
+
+<span>Température</span>
+
+<b>35 °C</b>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- JAUGES CABINE 2 -->
+
+
+<div class="card">
+
+
+<h2>
+
+
+<i class="fa-solid fa-gauge-high"></i>
+
+
+Indicateurs
+
+
+</h2>
+
+
+
+
+<div class="gauges">
+
+
+
+<div class="gauge">
+
+
+<canvas id="volt"></canvas>
+
+
+<p>Tension</p>
+
+
+</div>
+
+
+
+
+
+<div class="gauge">
+
+
+<canvas id="amp"></canvas>
+
+
+<p>Courant</p>
+
+
+</div>
+
+
+
+
+
+<div class="gauge">
+
+
+<canvas id="power"></canvas>
+
+
+<p>Puissance</p>
+
+
+</div>
+
+
+
+
+
+<div class="gauge">
+
+
+<canvas id="temp"></canvas>
+
+
+<p>Température</p>
+
+
+</div>
+
+
+
+
+</div>
+
+
+</div>
+
+<!-- TRANSFORMATEUR CABINE 2 -->
+
+
+<div class="card">
+
+
+<h2>
+
+<i class="fa-solid fa-gears"></i>
+
+Transformateur Cabine 2
+
+</h2>
+
+
+
+<p>
+
+Puissance apparente nominale :
+
+<b id="puissance2">
+
+50 kVA
+
+</b>
+
+</p>
+
+
+
+<p>
+
+Tension primaire :
+
+<b id="primaire2">
+
+20 kV
+
+</b>
+
+</p>
+
+
+
+<p>
+
+Tension secondaire :
+
+<b id="secondaire2">
+
+400/230 V
+
+</b>
+
+</p>
+
+
+
+
+<p>
+
+Couplage :
+
+<b id="couplage2">
+
+Dyn11
+
+</b>
+
+</p>
+
+
+
+
+<p>
+
+Impédance :
+
+<b id="impedance2">
+
+4 %
+
+</b>
+
+</p>
+
+
+
+
+<p>
+
+Constructeur :
+
+<b id="constructeur2">
+
+---
+
+</b>
+
+</p>
+
+
+
+
+<p>
+
+Numéro série :
+
+<b id="serie2">
+
+---
+
+</b>
+
+</p>
+
+
+
+
+<p>
+
+Année fabrication :
+
+<b id="annee2">
+
+---
+
+</b>
+
+</p>
+
+
+
+
+<button class="edit-transformer" onclick="ouvrirTransformateur2()">
+
+
+<i class="fa-solid fa-pen"></i>
+
+
+Modifier les caractéristiques
+
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- COMMANDE CABINE 2 -->
+
+
+<div class="card">
+
+
+<h2>
+
+
+<i class="fa-solid fa-power-off"></i>
+
+
+Commande de la cabine 2
+
+
+</h2>
+
+
+
+
+
+<div class="line">
+
+
+<span>Etat cabine</span>
+
+
+<b id="etatCabine2" style="color:#22c55e">
+
+
+🟢 Alimentée
+
+
+</b>
+
+
+</div>
+
+
+
+
+
+<div class="line">
+
+
+<span>Etat relais</span>
+
+
+<b id="etatRelais2">
+
+
+🟢 ON
+
+
+</b>
+
+
+</div>
+
+
+
+
+
+<div class="line">
+
+
+<span>Dernière commande</span>
+
+
+<b id="derniereCommande2">
+
+
+Aucune
+
+
+</b>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="command-buttons">
+
+
+
+<button class="btn-stop" onclick="couperCabine2()">
+
+
+<i class="fa-solid fa-power-off"></i>
+
+
+Couper la cabine
+
+
+</button>
+
+
+
+
+
+<button class="btn-start" onclick="allumerCabine2()">
+
+
+
+<i class="fa-solid fa-play"></i>
+
+
+Remettre en service
+
+
+</button>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- MENU ANALYSE CABINE 2 -->
+
+
+<div class="card menu-cabine">
+
+
+
+<h2>
+
+
+<i class="fa-solid fa-layer-group"></i>
+
+
+Analyse Cabine 2
+
+
+</h2>
+
+
+
+
+<div class="actions">
+
+
+
+<a href="graphique_cabine2.html">
+
+
+<i class="fa-solid fa-chart-line"></i>
+
+
+Graphiques
+
+
+</a>
+
+
+
+
+
+<a href="#">
+
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+
+Historique
+
+
+</a>
+
+
+
+
+
+<a href="#">
+
+
+<i class="fa-solid fa-triangle-exclamation"></i>
+
+
+Alertes
+
+
+</a>
+
+
+
+
+
+<a href="#">
+
+
+<i class="fa-solid fa-robot"></i>
+
+
+IA
+
+
+</a>
+
+
+
+
+
+<a href="#">
+
+
+<i class="fa-solid fa-cube"></i>
+
+
+Jumeau numérique
+
+
+</a>
+
+
+
+
+
+<a href="#">
+
+
+<i class="fa-solid fa-gear"></i>
+
+
+Paramètres
+
+
+</a>
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+</main>
+
+
+<!-- FENETRE MODIFICATION TRANSFORMATEUR 2 -->
+
+
+<div id="transformerModal2" class="modal">
+
+
+<div class="modal-content">
+
+
+
+<h2>
+
+<i class="fa-solid fa-pen"></i>
+
+Caractéristiques Transformateur Cabine 2
+
+</h2>
+
+
+
+
+<input id="newPuissance2" placeholder="Puissance kVA">
+
+
+<input id="newPrimaire2" placeholder="Tension primaire">
+
+
+<input id="newSecondaire2" placeholder="Tension secondaire">
+
+
+<input id="newCouplage2" placeholder="Couplage">
+
+
+<input id="newImpedance2" placeholder="Impédance">
+
+
+<input id="newConstructeur2" placeholder="Constructeur">
+
+
+<input id="newSerie2" placeholder="Numéro série">
+
+
+<input id="newAnnee2" placeholder="Année fabrication">
+
+
+
+
+
+
+<button onclick="sauverTransformateur2()" class="btn-start">
+
+<i class="fa-solid fa-check"></i>
+
+Enregistrer
+
+</button>
+
+
+
+
+<button onclick="fermerTransformateur2()" class="btn-stop">
+
+<i class="fa-solid fa-xmark"></i>
+
+Annuler
+
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- FIREBASE -->
+
+
+<script type="module">
+
+
+
+import { initializeApp } from
+
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+
+import { getDatabase, ref, set } from
+
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+
+
+
+
+
+
+const firebaseConfig = {
+
+
+apiKey: "TON_API_KEY",
+
+
+authDomain: "TON_PROJECT.firebaseapp.com",
+
+
+databaseURL: "TON_DATABASE_URL",
+
+
+projectId: "TON_PROJECT_ID",
+
+
+storageBucket: "TON_PROJECT.appspot.com",
+
+
+messagingSenderId: "TON_MESSAGING_ID",
+
+
+appId: "TON_APP_ID"
+
+
+};
+
+
+
+
+
+
+
+const app = initializeApp(firebaseConfig);
+
+
+const database = getDatabase(app);
+
+
+
+
+
+
+
+
+
+// COUPER CABINE 2
+
+
+window.couperCabine2 = function(){
+
+
+
+set(ref(database,"cabines/cabine2/commande"),{
+
+
+relais:"OFF",
+
+date:new Date().toLocaleString()
+
+
+});
+
+
+
+
+
+document.getElementById("etatCabine2").innerHTML =
+
+"🔴 Coupée";
+
+
+
+
+document.getElementById("etatRelais2").innerHTML =
+
+"🔴 OFF";
+
+
+
+
+document.getElementById("derniereCommande2").innerHTML =
+
+"Coupure envoyée";
+
+
+
+
+alert("Commande de coupure Cabine 2 envoyée");
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+// REMETTRE CABINE 2 EN SERVICE
+
+
+
+window.allumerCabine2 = function(){
+
+
+
+set(ref(database,"cabines/cabine2/commande"),{
+
+
+relais:"ON",
+
+date:new Date().toLocaleString()
+
+
+});
+
+
+
+
+
+
+document.getElementById("etatCabine2").innerHTML =
+
+"🟢 Alimentée";
+
+
+
+
+
+document.getElementById("etatRelais2").innerHTML =
+
+"🟢 ON";
+
+
+
+
+
+document.getElementById("derniereCommande2").innerHTML =
+
+"Remise en service envoyée";
+
+
+
+
+
+alert("Commande ON Cabine 2 envoyée");
+
+
+
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+<!-- MODIFICATION TRANSFORMATEUR -->
+
+
+<script>
+
+
+
+function ouvrirTransformateur2(){
+
+
+document.getElementById("transformerModal2").style.display="flex";
+
+
+}
+
+
+
+
+
+function fermerTransformateur2(){
+
+
+document.getElementById("transformerModal2").style.display="none";
+
+
+}
+
+
+
+
+
+
+
+function sauverTransformateur2(){
+
+
+
+if(newPuissance2.value!="")
+
+puissance2.innerHTML=newPuissance2.value+" kVA";
+
+
+
+
+
+if(newPrimaire2.value!="")
+
+primaire2.innerHTML=newPrimaire2.value;
+
+
+
+
+
+if(newSecondaire2.value!="")
+
+secondaire2.innerHTML=newSecondaire2.value;
+
+
+
+
+
+if(newCouplage2.value!="")
+
+couplage2.innerHTML=newCouplage2.value;
+
+
+
+
+
+if(newImpedance2.value!="")
+
+impedance2.innerHTML=newImpedance2.value+" %";
+
+
+
+
+
+if(newConstructeur2.value!="")
+
+constructeur2.innerHTML=newConstructeur2.value;
+
+
+
+
+
+if(newSerie2.value!="")
+
+serie2.innerHTML=newSerie2.value;
+
+
+
+
+
+if(newAnnee2.value!="")
+
+annee2.innerHTML=newAnnee2.value;
+
+
+
+
+
+
+fermerTransformateur2();
+
+
+
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+
+<!-- JAVASCRIPT GAUGES EXISTANT -->
+
+
+<script src="js/cabine.js"></script>
+
+
+
+
+
+</body>
+
+
+</html>

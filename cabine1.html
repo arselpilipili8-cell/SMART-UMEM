@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Umeme - Cabine 1</title>
+
+
+<link rel="stylesheet" href="css/cabine.css">
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</head>
+
+
+<body>
+
+
+
+<!-- RETOUR DASHBOARD -->
+
+<div class="top-navigation">
+
+<a href="dashboard.html" class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Retour au Dashboard
+
+</a>
+
+</div>
+
+
+
+
+
+<header>
+
+
+<div class="brand">
+
+<i class="fa-solid fa-bolt"></i>
+
+SMART UMEME
+
+</div>
+
+
+
+<div>
+
+Cabine 1 - Supervision
+
+</div>
+
+
+
+<div class="status">
+
+🟢 Normal
+
+</div>
+
+
+</header>
+
+
+
+
+
+
+<main class="dashboard">
+
+
+
+
+
+<!-- MESURES ELECTRIQUES -->
+
+
+<div class="card">
+
+
+<h2>
+
+<i class="fa-solid fa-chart-simple"></i>
+
+Mesures électriques
+
+</h2>
+
+
+
+<div class="line">
+
+<span>Tension</span>
+
+<b>230 V</b>
+
+</div>
+
+
+
+<div class="line">
+
+<span>Courant</span>
+
+<b>45 A</b>
+
+</div>
+
+
+
+<div class="line">
+
+<span>Puissance active</span>
+
+<b>10.2 kW</b>
+
+</div>
+
+
+
+<div class="line">
+
+<span>Energie</span>
+
+<b>125 kWh</b>
+
+</div>
+
+
+
+<div class="line">
+
+<span>Facteur puissance</span>
+
+<b>0.92</b>
+
+</div>
+
+
+
+<div class="line">
+
+<span>Fréquence</span>
+
+<b>50 Hz</b>
+
+</div>
+
+
+
+<div class="line">
+
+<span>Température</span>
+
+<b>38 °C</b>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- JAUGES -->
+
+
+<div class="card">
+
+
+<h2>
+
+<i class="fa-solid fa-gauge-high"></i>
+
+Indicateurs
+
+</h2>
+
+
+
+<div class="gauges">
+
+
+<div class="gauge">
+
+<canvas id="volt"></canvas>
+
+<p>Tension</p>
+
+</div>
+
+
+
+<div class="gauge">
+
+<canvas id="amp"></canvas>
+
+<p>Courant</p>
+
+</div>
+
+
+
+<div class="gauge">
+
+<canvas id="power"></canvas>
+
+<p>Puissance</p>
+
+</div>
+
+
+
+<div class="gauge">
+
+<canvas id="temp"></canvas>
+
+<p>Température</p>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- TRANSFORMATEUR -->
+
+
+<div class="card">
+
+
+<h2>
+
+<i class="fa-solid fa-gears"></i>
+
+Transformateur
+
+</h2>
+
+
+
+<p>
+Puissance apparente nominale :
+<b id="puissance">50 kVA</b>
+</p>
+
+
+
+<p>
+Tension primaire :
+<b id="primaire">20 kV</b>
+</p>
+
+
+
+<p>
+Tension secondaire :
+<b id="secondaire">400/230 V</b>
+</p>
+
+
+
+<p>
+Couplage :
+<b id="couplage">Dyn11</b>
+</p>
+
+
+
+<p>
+Impédance :
+<b id="impedance">4 %</b>
+</p>
+
+
+
+<p>
+Constructeur :
+<b id="constructeur">---</b>
+</p>
+
+
+
+<p>
+Numéro série :
+<b id="serie">---</b>
+</p>
+
+
+
+<p>
+Année fabrication :
+<b id="annee">---</b>
+</p>
+
+
+
+<button class="edit-transformer" onclick="ouvrirTransformateur()">
+
+<i class="fa-solid fa-pen"></i>
+
+Modifier les caractéristiques
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- COMMANDE CABINE CONNECTEE FIREBASE -->
+
+
+<div class="card">
+
+
+<h2>
+
+<i class="fa-solid fa-power-off"></i>
+
+Commande de la cabine
+
+</h2>
+
+
+
+
+<div class="line">
+
+<span>Etat cabine</span>
+
+<b id="etatCabine" style="color:#22c55e">
+
+🟢 Alimentée
+
+</b>
+
+</div>
+
+
+
+
+<div class="line">
+
+<span>Etat relais</span>
+
+<b id="etatRelais">
+
+🟢 ON
+
+</b>
+
+</div>
+
+
+
+
+<div class="line">
+
+<span>Dernière commande</span>
+
+<b id="derniereCommande">
+
+Aucune
+
+</b>
+
+</div>
+
+
+
+
+
+
+<div class="command-buttons">
+
+
+
+<button class="btn-stop" onclick="couperCabine()">
+
+<i class="fa-solid fa-power-off"></i>
+
+Couper la cabine
+
+</button>
+
+
+
+
+
+<button class="btn-start" onclick="allumerCabine()">
+
+<i class="fa-solid fa-play"></i>
+
+Remettre en service
+
+</button>
+
+
+
+</div>
+
+
+
+</div>
+
+
+<!-- MENU ANALYSE CABINE -->
+
+<div class="card menu-cabine">
+
+
+<h2>
+
+<i class="fa-solid fa-layer-group"></i>
+
+Analyse Cabine 1
+
+</h2>
+
+
+
+<div class="actions">
+
+
+<a href="graphique_cabine1.html">
+
+<i class="fa-solid fa-chart-line"></i>
+
+Graphiques
+
+</a>
+
+
+
+<a href="#">
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+Historique
+
+</a>
+
+
+
+<a href="#">
+
+<i class="fa-solid fa-triangle-exclamation"></i>
+
+Alertes
+
+</a>
+
+
+
+<a href="#">
+
+<i class="fa-solid fa-robot"></i>
+
+IA
+
+</a>
+
+
+
+<a href="jumeau_cabine1.html">
+
+<i class="fa-solid fa-cube"></i>
+
+Jumeau numérique
+
+</a>
+
+
+
+<a href="#">
+
+<i class="fa-solid fa-gear"></i>
+
+Paramètres
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+</main>
+
+
+
+
+
+
+
+<!-- FENETRE MODIFICATION TRANSFORMATEUR -->
+
+
+<div id="transformerModal" class="modal">
+
+
+<div class="modal-content">
+
+
+<h2>
+
+<i class="fa-solid fa-pen"></i>
+
+Caractéristiques Transformateur
+
+</h2>
+
+
+
+<input id="newPuissance" placeholder="Puissance kVA">
+
+<input id="newPrimaire" placeholder="Tension primaire">
+
+<input id="newSecondaire" placeholder="Tension secondaire">
+
+<input id="newCouplage" placeholder="Couplage">
+
+<input id="newImpedance" placeholder="Impédance">
+
+<input id="newConstructeur" placeholder="Constructeur">
+
+<input id="newSerie" placeholder="Numéro série">
+
+<input id="newAnnee" placeholder="Année fabrication">
+
+
+
+<button onclick="sauverTransformateur()" class="btn-start">
+
+<i class="fa-solid fa-check"></i>
+
+Enregistrer
+
+</button>
+
+
+
+<button onclick="fermerTransformateur()" class="btn-stop">
+
+<i class="fa-solid fa-xmark"></i>
+
+Annuler
+
+</button>
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+
+import { initializeApp } from 
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import { getDatabase, ref, set } from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+
+
+
+// REMPLACE PAR TES INFORMATIONS FIREBASE
+
+const firebaseConfig = {
+
+
+apiKey: "TON_API_KEY",
+
+authDomain: "TON_PROJECT.firebaseapp.com",
+
+databaseURL: "TON_DATABASE_URL",
+
+projectId: "TON_PROJECT_ID",
+
+storageBucket: "TON_PROJECT.appspot.com",
+
+messagingSenderId: "TON_MESSAGING_ID",
+
+appId: "TON_APP_ID"
+
+
+};
+
+
+
+const app = initializeApp(firebaseConfig);
+
+
+const database = getDatabase(app);
+
+
+
+
+
+
+
+// COUPER CABINE
+
+
+window.couperCabine = function(){
+
+
+set(ref(database,"cabines/cabine1/commande"),{
+
+
+relais:"OFF",
+
+date:new Date().toLocaleString()
+
+
+});
+
+
+document.getElementById("etatCabine").innerHTML =
+"🔴 Coupée";
+
+
+document.getElementById("etatRelais").innerHTML =
+"🔴 OFF";
+
+
+document.getElementById("derniereCommande").innerHTML =
+"Coupure envoyée";
+
+
+alert("Commande de coupure envoyée");
+
+
+}
+
+
+
+
+
+
+
+// REMETTRE EN SERVICE
+
+
+window.allumerCabine = function(){
+
+
+set(ref(database,"cabines/cabine1/commande"),{
+
+
+relais:"ON",
+
+date:new Date().toLocaleString()
+
+
+});
+
+
+
+document.getElementById("etatCabine").innerHTML =
+"🟢 Alimentée";
+
+
+document.getElementById("etatRelais").innerHTML =
+"🟢 ON";
+
+
+document.getElementById("derniereCommande").innerHTML =
+"Remise en service envoyée";
+
+
+
+alert("Commande ON envoyée");
+
+
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+
+<!-- SCRIPT TRANSFORMATEUR -->
+
+
+<script>
+
+
+function ouvrirTransformateur(){
+
+document.getElementById("transformerModal").style.display="flex";
+
+}
+
+
+
+
+function fermerTransformateur(){
+
+document.getElementById("transformerModal").style.display="none";
+
+}
+
+
+
+
+function sauverTransformateur(){
+
+
+if(newPuissance.value!="")
+puissance.innerHTML=newPuissance.value+" kVA";
+
+
+if(newPrimaire.value!="")
+primaire.innerHTML=newPrimaire.value;
+
+
+if(newSecondaire.value!="")
+secondaire.innerHTML=newSecondaire.value;
+
+
+if(newCouplage.value!="")
+couplage.innerHTML=newCouplage.value;
+
+
+if(newImpedance.value!="")
+impedance.innerHTML=newImpedance.value+" %";
+
+
+if(newConstructeur.value!="")
+constructeur.innerHTML=newConstructeur.value;
+
+
+if(newSerie.value!="")
+serie.innerHTML=newSerie.value;
+
+
+if(newAnnee.value!="")
+annee.innerHTML=newAnnee.value;
+
+
+
+fermerTransformateur();
+
+
+}
+
+
+</script>
+
+
+
+
+
+<script src="js/cabine.js"></script>
+
+
+
+</body>
+
+</html>

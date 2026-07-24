@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Graphiques - Cabine 1</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#2b313a;
+color:white;
+}
+
+header{
+
+background:#1d232b;
+padding:20px 30px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+border-bottom:3px solid #00b4ff;
+
+}
+
+header h1{
+
+color:#00b4ff;
+
+}
+
+.back{
+
+background:white;
+
+color:#1565c0;
+
+padding:12px 20px;
+
+border-radius:10px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+}
+
+.back:hover{
+
+background:#1565c0;
+
+color:white;
+
+}
+
+.container{
+
+width:95%;
+
+margin:30px auto;
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:25px;
+
+}
+
+.card{
+
+background:#3a424d;
+
+padding:20px;
+
+border-radius:15px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.3);
+
+}
+
+.card h2{
+
+margin-bottom:15px;
+
+color:#00d4ff;
+
+text-align:center;
+
+}
+
+canvas{
+
+background:white;
+
+border-radius:10px;
+
+padding:10px;
+
+}
+
+@media(max-width:900px){
+
+.container{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>📈 Graphiques - Cabine 1</h1>
+
+<a href="cabine1.html" class="back">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Retour
+
+</a>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Tension (V)</h2>
+
+<canvas id="tension"></canvas>
+
+</div>
+
+<div class="card">
+
+<h2>Courant (A)</h2>
+
+<canvas id="courant"></canvas>
+
+</div>
+
+<div class="card">
+
+<h2>Puissance (kW)</h2>
+
+<canvas id="puissance"></canvas>
+
+</div>
+
+<div class="card">
+
+<h2>Température (°C)</h2>
+
+<canvas id="temperature"></canvas>
+
+</div>
+
+</div>
+
+<script>
+
+function creerGraphique(id,label,valeurs,couleur){
+
+new Chart(document.getElementById(id),{
+
+type:'line',
+
+data:{
+
+labels:["08h","09h","10h","11h","12h","13h","14h"],
+
+datasets:[{
+
+label:label,
+
+data:valeurs,
+
+borderColor:couleur,
+
+backgroundColor:couleur,
+
+fill:false,
+
+tension:0.4,
+
+borderWidth:3
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+plugins:{
+
+legend:{
+
+display:true
+
+}
+
+}
+
+}
+
+});
+
+}
+
+creerGraphique("tension","Tension (V)",[228,229,230,231,230,229,230],"blue");
+
+creerGraphique("courant","Courant (A)",[38,40,42,45,44,43,45],"green");
+
+creerGraphique("puissance","Puissance (kW)",[8.5,9,9.5,10,10.2,10.1,10.2],"orange");
+
+creerGraphique("temperature","Température (°C)",[34,35,36,37,38,38,38],"red");
+
+</script>
+
+</body>
+
+</html>

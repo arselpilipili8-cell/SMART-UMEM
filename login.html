@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Connexion Smart Umeme</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+.login-box{
+    width:420px;
+    max-width:90%;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(0,234,255,.35);
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.45);
+}
+
+.logo{
+    width:120px;
+    height:120px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    overflow:hidden;
+    border:3px solid #00eaff;
+    box-shadow:0 0 20px #00eaff;
+}
+
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.login-box h2{
+    color:#fff;
+    font-size:32px;
+    margin-bottom:25px;
+}
+
+.input-box{
+    width:100%;
+    height:50px;
+    margin:12px 0;
+    border:none;
+    border-radius:10px;
+    padding:0 18px;
+    font-size:16px;
+    outline:none;
+}
+
+.input-box:focus{
+    box-shadow:0 0 12px #00eaff;
+}
+
+button{
+    width:100%;
+    height:50px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+    background:#00d9ff;
+    color:#fff;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#00b8d6;
+}
+
+#message{
+    margin-top:18px;
+    color:#ff5b5b;
+    font-size:15px;
+}
+
+.back{
+    margin-top:20px;
+    color:#ffffff;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.back:hover{
+    color:#00eaff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+    <div class="login-box">
+
+        <div class="logo">
+            <img src="images/logo.jpg" alt="SMART UMEME">
+        </div>
+
+        <h2>Connexion</h2>
+
+        <input
+        class="input-box"
+        id="username"
+        type="text"
+        placeholder="Nom d'utilisateur">
+
+        <input
+        class="input-box"
+        id="password"
+        type="password"
+        placeholder="Mot de passe">
+
+        <button onclick="login()">
+            Se connecter
+        </button>
+
+        <p id="message"></p>
+
+        <div class="back" onclick="goBack()">
+            ← Retour
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function login(){
+
+let user=document.getElementById("username").value;
+
+let pass=document.getElementById("password").value;
+
+if(user==="Muhindo arsel" && pass==="142004"){
+
+window.location.href="dashboard.html";
+
+}else{
+
+document.getElementById("message").innerHTML="❌ Identifiants incorrects";
+
+}
+
+}
+
+function goBack(){
+
+window.location.href="index.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,282 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+
+body{
+
+    background:#3f4652;
+
+    color:#1f2937;
+
+    min-height:100vh;
+
+}
+
+
+/* HEADER */
+
+header{
+
+    height:85px;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 40px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.25);
+
+}
+
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    color:#007bff;
+
+    font-size:26px;
+
+    font-weight:bold;
+
+}
+
+
+.logo i{
+
+    font-size:38px;
+
+}
+
+
+.top-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    font-size:18px;
+
+}
+
+
+
+/* CONTENU */
+
+main{
+
+    padding:35px;
+
+}
+
+
+main h1{
+
+    text-align:center;
+
+    color:white;
+
+    margin-bottom:35px;
+
+}
+
+
+
+/* CABINES */
+
+.cabines{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:35px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+/* CARTES */
+
+.card{
+
+    width:520px;
+
+    min-height:240px;
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:25px 35px;
+
+    border:2px solid #008cff;
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,0.3);
+
+    transition:0.3s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+
+    0 25px 45px rgba(0,140,255,0.4);
+
+}
+
+
+
+.card h2{
+
+    color:#007bff;
+
+    font-size:27px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+/* DONNEES */
+
+.card p{
+
+    display:inline-block;
+
+    width:45%;
+
+    background:#f1f5f9;
+
+    padding:10px;
+
+    margin:5px;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+}
+
+
+
+/* ETAT */
+
+.normal{
+
+    color:#16a34a;
+
+    font-weight:bold;
+
+}
+
+
+.warning{
+
+    color:#f59e0b;
+
+    font-weight:bold;
+
+}
+
+
+
+/* BOUTON */
+
+.card button{
+
+    width:100%;
+
+    height:42px;
+
+    margin-top:12px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#007bff;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+}
+
+
+
+.card button:hover{
+
+    background:#0056b3;
+
+}
+
+
+
+/* MENU BAS */
+
+footer{
+
+    position:fixed;
+
+    bottom:0;
+
+    width:100%;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    padding:12px;
+
+    box-shadow:0 -5px 20px rgba(0,0,0,0.25);
+
+}
+
+
+footer button{
+
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#eaf4ff;
+
+    color:#007bff;
+
+    cursor:pointer;
+
+}

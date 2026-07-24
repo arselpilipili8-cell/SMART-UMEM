@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Umeme - Graphiques</title>
+
+<link rel="stylesheet" href="css/graphiques.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+
+<i class="fa-solid fa-bolt"></i>
+
+SMART UMEME
+
+</div>
+
+
+<div class="actions">
+
+<select>
+
+<option>Cabine 1</option>
+
+<option>Cabine 2</option>
+
+</select>
+
+
+<select>
+
+<option>Temps réel</option>
+
+<option>24 heures</option>
+
+<option>7 jours</option>
+
+</select>
+
+
+<a href="dashboard.html">
+
+⬅ Retour
+
+</a>
+
+
+</div>
+
+
+</header>
+
+
+
+
+
+<main>
+
+
+
+<h1>
+
+<i class="fa-solid fa-chart-line"></i>
+
+Analyse énergétique
+
+</h1>
+
+
+
+<section class="grid">
+
+
+
+<div class="card">
+
+<h2>Tension (V)</h2>
+
+<canvas id="voltageChart"></canvas>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>Courant (A)</h2>
+
+<canvas id="currentChart"></canvas>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>Puissance active (kW)</h2>
+
+<canvas id="powerChart"></canvas>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>Température (°C)</h2>
+
+<canvas id="temperatureChart"></canvas>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>Facteur de puissance (cos φ)</h2>
+
+<canvas id="pfChart"></canvas>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>Fréquence (Hz)</h2>
+
+<canvas id="frequencyChart"></canvas>
+
+</div>
+
+
+
+</section>
+
+
+</main>
+
+
+
+<script src="js/graphiques.js"></script>
+
+
+</body>
+
+</html>
